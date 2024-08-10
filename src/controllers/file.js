@@ -8,9 +8,9 @@ export const PostFile = async (request, response) => {
         }
         console.log('request: ', request.file)
         const fileBuffer = request.file.buffer;
-        const _file = new File([fileBuffer], 'address', {
+        const _file = new File([fileBuffer], request.file.originalname, {
             lastModified: new Date().getMilliseconds(),
-            type: request.file.type,
+            type: request.file.mimetype,
         });
 
         console.log('_file" ', _file)
