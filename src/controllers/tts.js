@@ -3,8 +3,8 @@ import {
     AWS_ACCESS_KEY_ID,
     AWS_REGION,
     AWS_SECRET_ACCESS_KEY,
-} from './env.js'
-import { w3sClient } from './w3s.js'
+} from '../lib/configs/env.js'
+import { w3sClient } from '../lib/configs/w3s.js';
 
 
 const MAX_TEXT_LENGTH = 3000;
