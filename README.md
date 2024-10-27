@@ -93,6 +93,17 @@ The client:
 - Sets the current space based on the DID provided.
 - Checks and ensures an active payment plan is in place. Offers free plan (5.0 GB)
 
+## Deployment Environment
+
+`w3s` is hosted and deployed on [Render.com](https://render.com), which offers flexible deployment options for scaling web applications and APIs with features like autoscaling, private networking, and zero-downtime deploys.
+
+### Key Features of the Render Deployment
+
+- **Automatic Deploys**: Automatically redeploys the app on each push to the main branch, ensuring the latest code is always live.
+- **Zero Downtime**: Render provides zero-downtime deploys, minimizing disruption during updates.
+- **Scalability**: The platform supports load-based autoscaling, enabling `w3s` to handle increased traffic seamlessly.
+- **Managed PostgreSQL and Redis**: For data storage and caching needs, Render offers integrated, managed data services with high availability and compliance standards (e.g., SOC 2, GDPR).
+
 ## Example Usage
 
 ```bash
