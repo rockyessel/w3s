@@ -1,10 +1,6 @@
 import AWS from 'aws-sdk'
-import {
-    AWS_ACCESS_KEY_ID,
-    AWS_REGION,
-    AWS_SECRET_ACCESS_KEY,
-} from '../lib/configs/env.js'
 import { w3sClient } from '../lib/configs/w3s.js';
+import { AWS_ACCESS_KEY_ID, AWS_REGION, AWS_SECRET_ACCESS_KEY } from '../lib/configs/env.js'
 
 
 const MAX_TEXT_LENGTH = 3000;
@@ -49,15 +45,9 @@ export const createTTS = async (request, response) => {
             type: `audio/mpeg`,
         });
 
-        console.log('_file" ', _file)
-
         const client = await w3sClient()
 
         const CID = (await client.uploadFile(_file)).link().toString()
-
-        console.log('CID: ', CID)
-
-
 
         return response.status(201).json({ cid: CID });
     } catch (error) {

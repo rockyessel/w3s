@@ -18,9 +18,7 @@ server.use('/api/v1/tts', TTSRoutes);
 server.use('/api/v1/file', FileRoutes);
 server.use('/api/v1/files', FilesRoutes);
 
-server.listen(PORT, () =>
-    console.log(`Server running on: http://localhost:${PORT}`)
-);
+server.listen(PORT, () => console.log(`Server running on: http://localhost:${PORT}`))
 
 
 export default server

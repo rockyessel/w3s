@@ -7,25 +7,20 @@ export const PostFiles = async (request, response) => {
         if (Array.isArray(files) && files.length > 0) {
             const createCIDs = files.map(async (file) => {
                 try {
-                    console.log('file: ', file);
 
                     const _file = new File([file.buffer], file.originalname, {
                         lastModified: new Date().getMilliseconds(),
                         type: file.mimetype,
                     });
 
-                    console.log('_file: ', _file);
-
                     const client = await w3sClient();
 
                     const CID = (await client.uploadFile(_file)).link().toString();
 
-                    console.log('CID: ', CID);
-
                     return CID;
                 } catch (error) {
                     console.error('Error uploading file:', error);
-                    throw error; // Rethrow error to handle it in the outer try-catch
+                    response.status(500).json({ error: 'Error uploading file.', success: false });
                 }
             });
 

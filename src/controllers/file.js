@@ -6,21 +6,15 @@ export const PostFile = async (request, response) => {
         if (!request.file) {
             return response.status(400).json({ error: 'No file' });
         }
-        console.log('request: ', request.file)
         const fileBuffer = request.file.buffer;
         const _file = new File([fileBuffer], request.file.originalname, {
             lastModified: new Date().getMilliseconds(),
             type: request.file.mimetype,
         });
 
-        console.log('_file" ', _file)
-
         const client = await w3sClient()
 
         const CID = (await client.uploadFile(_file)).link().toString()
-
-        console.log('CID: ', CID)
-
 
         return response.json({ cids: CID });
 
